@@ -7,13 +7,13 @@ const Navbar = () => {
         <div className="flex gap-5">
           <Link
             to="/login"
-            className="px-6 py-2 text-blue-800 border border-blue-800 rounded-sm hover:bg-blue-500 hover:text-white"
+            className="px-6 py-2 text-blue-800 rounded-md border border-blue-800 rounded-sm hover:bg-blue-500 hover:text-white"
           >
             Login
           </Link>
           <Link
             to="/register"
-            className="bg-blue-800 text-white px-6 py-2 hover:bg-white hover:text-blue-800 hover:border rounded-sm"
+            className="bg-blue-800 rounded-md text-white px-6 py-2 hover:bg-white hover:text-blue-800 hover:border rounded-sm"
           >
             Register
           </Link>
