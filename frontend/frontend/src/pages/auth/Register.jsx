@@ -1,6 +1,7 @@
 import { useState } from "react";
-
+import { NavLink, useNavigate } from "react-router";
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -19,7 +20,30 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      const response = await fetch("http://localhost:400/user/register", {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+
+      })
+
+      await response.json();
+
+      navigate("login");
+    } catch (error) {
+      console.log("register failed", error.message)
+    } finally {
+      useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+      })
+    }
+
   };
 
   return (

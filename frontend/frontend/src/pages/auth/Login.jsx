@@ -34,7 +34,7 @@ const Login = () => {
             value={formData.email}
             onChange={handleInputChange}
             placeholder="Enter your email"
-             className="border border-blue-800 rounded-sm px-3 py-1.5 outline-none"
+            className="border border-blue-800 rounded-sm px-3 py-1.5 outline-none"
           />
         </label>
         <label className="flex flex-col">
@@ -45,7 +45,7 @@ const Login = () => {
             value={formData.password}
             onChange={handleInputChange}
             placeholder="Enter your password"
-             className="border border-blue-800 rounded-sm px-3 py-1.5 outline-none"
+            className="border border-blue-800 rounded-sm px-3 py-1.5 outline-none"
           />
         </label>
         <button className="px-6 py-2 bg-blue-800 text-white hover:border hover:border-blue-800 hover:bg-white rounded-sm  hover:text-blue-800">Register</button>
