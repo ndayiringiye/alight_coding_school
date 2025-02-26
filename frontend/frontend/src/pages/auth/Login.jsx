@@ -19,7 +19,21 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      const response = await fetch("http://localhost:400/user/login", {
+        headers: {
+          method: "POST",
+          "content-Type": " application/json"
+        },
+        body: JSON.stringify(formData),
+
+      });
+      if (!response.ok) {
+        throw new error("failed to login", error);
+      }
+    } catch (error) {
+
+    }
   };
 
   return (
@@ -48,7 +62,7 @@ const Login = () => {
             className="border border-blue-800 rounded-sm px-3 py-1.5 outline-none"
           />
         </label>
-        <button className="px-6 py-2 bg-blue-800 text-white hover:border hover:border-blue-800 hover:bg-white rounded-sm  hover:text-blue-800">Register</button>
+        <button className="px-6 py-2 bg-blue-800 text-white hover:border hover:border-blue-800 hover:bg-white rounded-sm  hover:text-blue-800">Login</button>
       </form>
     </div>
   );

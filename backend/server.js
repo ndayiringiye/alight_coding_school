@@ -1,20 +1,22 @@
 import express from "express";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
-import bodyParser from "body-parser"
-import userRouter from "../backend/models/user.model.js";
-import cors from "cors"
+import bodyParser from "body-parser";
+import userRouter from "./routes/user.route.js";
+import cors from "cors";
+import { createAdminAccount } from "./script/admin.js";
 
-const app = express();
-app.use(bodyParser.json());
-app.use("/use", userRouter);
-app.use(cors());
 dotenv.config();
+const app = express();
 
-const PORT = process.env.PORT;
+app.use(cors());
+app.use(bodyParser.json());
 
+app.use("/user", userRouter);
+createAdminAccount()
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, async () => {
     await connectDB();
-    console.log(`server running on port ${PORT}`);
-})
+    console.log(`Server running on port ${PORT}`);
+});
